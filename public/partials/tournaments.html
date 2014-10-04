@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1>tournaments</h1>
+  <p class="lead">"When a man is wrapped up in himself, he makes a pretty small package." - John Ruskin</p>
+</div>
+
+<div class="container">
+  <input type="text" ng-model="search" placeholder="search for tournament"/>
+  <table class="table table-striped">
+    <thead>
+      <td>id</td>
+      <td>name</td>
+    </thead>
+    <tbody>
+      <tr ng-repeat="t in tournaments | filter:search">
+        <td>{{t.id}}</td>
+        <td><a href="#/tournaments/{{t.id}}">{{t.name}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

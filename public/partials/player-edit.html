@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>edit player</h1>
+  <p class="lead">"The town where I grew up has a zip code of E-I-E-I-O." - Martin Mull</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form ng-submit="updatePlayer()">
+        <div ng-include="'partials/_playerform.html'"></div>
+        <input type="submit" value="edit player">
+      </form>
+      <p><a ng-click="deletePlayer()">delete player</a>
+    </div>
+  </div>
+</div>

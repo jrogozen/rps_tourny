@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="rpsApp">
+  <head>
+    <title>RPS | Rock Paper Scissors Tournament</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="login col-md-3">
+            <!-- <a href="" class="btn-login btn btn-info">login</a> -->
+
+<!--             <div class="login-dropdown-container">
+              <form>
+                <input type="text" name="username" placeholder="enter username..."/>
+                <input type="password" name="password" placeholder="password"/>
+                <div class="btn-container">
+                  <input class="btn btn-primary btn-sm" type="submit" value="login">
+                  <a href="./#/registration" class="btn btn-info btn-sm">register</a>
+                </div>
+              </form>
+            </div> -->
+
+          </div>
+          <div class="col-md-9">
+         
+          </div>
+          
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+    <footer id="footer">
+      <div class="container">
+      
+      </div>
+    </footer>
+
+
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
+
+    <script src="./js/rps.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/services.js"></script>
+    <script src="./js/main.js"></script>
+
+  </body>
+</html>

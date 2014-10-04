@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'rock_pape_scis', :git => 'https://github.com/jrogozen/rps'
+gem 'pg'
+gem 'activerecord', '~> 4.1.0'
+gem 'active_record_tasks', '~> 1.1.0'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'rack'
+gem 'pry-byebug'
+gem 'json'
+gem 'squeel'

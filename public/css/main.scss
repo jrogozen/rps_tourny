@@ -1,0 +1,24 @@
+$dark: #555152;
+$light: #EFFFCD; 
+
+.user-input {
+  span {
+    font-size: 22px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: inline-block;
+    background: $dark;
+    color: $light;
+    transition: background-color 0.5s ease;
+    &:hover {
+      cursor: pointer;
+      background: $light;
+      color: $dark;
+    }
+  }
+}
+
+.game-commands {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,46 @@
+<div class="jumbotron">
+  <h1>game: {{game.info.id}}</h1>
+  <p class="lead">game info</p>
+</div>
+
+<div class="container">
+
+  <div style="display: none;" class="winner">
+    <h2>Winner: {{game.info.winner}}</h2>
+  </div>
+
+  <div class="game-commands">
+    <h3>Players</h3>
+    <div class="row">
+
+      <div ng-repeat="player in game.players" class="col-md-6" on-finish-render>
+        <h4><a href="/#/players/{{player.id}}">{{player.username}}</a></h4>
+
+        <div class="user-input user-id-{{player.id}}">
+            <span ng-click="makeMove('rock', player)">rock</span>
+            <span ng-click="makeMove('paper', player)">paper</span>
+            <span ng-click="makeMove('scissor', player)">scissor</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <h3>History</h3>
+  <table class="table table-striped">
+    <thead>
+      <td>round</td>
+      <td>player</td>
+      <td>move</td>
+    </thead>
+    <tbody >
+
+      <tr ng-repeat="move in game.moves">
+      
+        <td></td>
+        <td>{{move.player}}</td>
+        <td>{{move.move}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+require_relative 'rps/game.rb'
+require_relative 'rps/tournament.rb'
+require_relative 'rps/player.rb'
+require_relative 'rps/move.rb'
+require_relative 'rps/game_player.rb'
+require_relative 'rps/tournament_player.rb'

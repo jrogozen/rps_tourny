@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1>{{player.username}}</h1>
+  <p class="lead">{{player.email}}</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li>Wins: {{player.wins}}</li>
+        <li>Losses: {{player.losses}}</li>
+        <li>Win Percentage: {{(player.wins/(player.wins + player.losses)) * 100}}%</li>
+      </ul>
+      <ul ng-repeat="t in tournaments">
+        <li>Tournament Name: {{t.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

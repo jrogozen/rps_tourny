@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <h1>{{tournament.info.name}}</h1>
+  <p class="lead">tournament details</p>
+</div>
+
+<div class="container">
+
+  <div style="display: none;" class="winner">
+  <h2>Winner</h2>
+  {{tournament.info.winner}}
+  </div>
+
+  <h2>All Games in {{tournament.info.name}}</h2>
+   
+    <ul ng-repeat="(k,v) in tournament.games">
+      
+      <li>
+        <a href="/#/games/{{k}}">
+          <span ng-repeat="player in v">
+            <span ng-show="!$first">vs </span>{{player.username}}
+          </span>
+        </a>
+      </li>
+     
+    </ul>
+   
+  <h2>All Players in {{tournament.info.name}}</h2> 
+  <ul ng-repeat="player in tournament.players">
+    <li><a href="/#/players/{{player.id}}">{{player.username}}</a></li>
+  </ul>
+</div>
+
