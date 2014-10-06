@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <h1>ping pong tournament tracker</h1>
+  <p class="lead">"Alcohol may be man's worst enemy, but the bible says love your enemy." - Frank Sinatra</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      latest games
+
+    </div>
+    <div class="col-md-6">
+      <h3>Leaderboards</h3>
+      <input class="form-control" type="text" ng-model="query" placeholder="username"/>
+      <input type="radio" ng-model="order" name="sort" value="wins">wins
+      <input type="radio" ng-model="order" name="sort" value="losses">losses
+      <input type="radio" ng-model="order" name="sort" value="percentage">percentage
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>username</td>
+            <td>wins</td>
+            <td>losses</td>
+            <td>percentage</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="player in players | orderBy: order : true">
+            <td>{{player.username}}</td>
+            <td>{{player.wins}}</td>
+            <td>{{player.losses}}</td>
+            <td>{{(player.wins/(player.wins + player.losses)) * 100}}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

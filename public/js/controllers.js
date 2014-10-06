@@ -58,11 +58,19 @@ rpsApp.controller('TournamentsCreateController', function ($scope, $location, To
 
   $scope.addTournament = function () {
     console.log($scope.tournament);
-    TournamentFactory.saveTournament({}, $scope.tournament, function () {
-      $location.url('/tournaments');
-    });
 
+    TournamentFactory.saveTournament({}, $scope.tournament, 
+    function(data) {
+        // do something on success
+        $location.url('/tournaments/' + data.id);
+    }, function(errorResult) {
+        // do something on error
+        if(errorResult.status === 404) {     
+          $location.url('/players/new');       
+        }
+    });
   }
+
 });
 
 rpsApp.controller('TournamentsViewController', function ($scope, $location, $routeParams, TournamentFactory) {
@@ -130,5 +138,13 @@ rpsApp.controller('GamesViewController', function ($scope, $route, $routeParams,
   $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
     $scope.processDivs();
   });
+
+});
+
+rpsApp.controller('HomeController', function ($scope, $location, PlayerFactory, GameFactory) {
+  $scope.players = PlayerFactory.query( function () {
+    console.log($scope.players);
+  });
+  $scope.order = 'wins';
 
 });

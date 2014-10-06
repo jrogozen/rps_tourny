@@ -6,9 +6,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <form ng-submit="addPlayer()">
+      <form name="playerForm" ng-submit="addPlayer()" novalidate>
         <div ng-include="'partials/_playerform.html'"></div>
-        <input class="btn btn-primary" type="submit" value="add player">
+        <input ng-disabled="playerForm.$invalid" class="btn btn-primary" type="submit" value="add player">
       </form>
     </div>
   </div>

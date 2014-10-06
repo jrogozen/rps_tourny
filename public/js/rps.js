@@ -9,6 +9,11 @@ var rpsApp = angular
 rpsApp.config(function ($routeProvider) {
   $routeProvider
 
+  .when('/', {
+    templateUrl: 'partials/home.html',
+    controller: 'HomeController'
+  })
+
   .when('/players', {
     templateUrl: 'partials/players.html',
     controller: 'PlayerListController'

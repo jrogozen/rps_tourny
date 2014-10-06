@@ -11,8 +11,13 @@ require 'rock_pape_scis'
 require_relative 'config/environments.rb'
 
 get '/' do
-  erb :index
+  if session[:user_id]
+    erb :index
+  else
+    erb :index
+  end
 end
+
 
 get '/api/players' do
   Player.all.to_json
@@ -20,14 +25,11 @@ end
 
 post '/api/players' do
   ng_params = JSON.parse(request.body.read)
+  puts "ng_params: #{ng_params}"
 
-  p = Player.new(
-    username: ng_params["username"],
-    email: ng_params["email"],
-  )
-
-  if p.valid?
-    p.save
+  if ng_params["password"] == ng_params["password_confirmation"]
+    hashed_password = Player.encrypt(ng_params["password"])
+    Player.create(username: ng_params["username"], hashed_password: hashed_password, email: ng_params["email"])
   end
 end
 
@@ -86,7 +88,11 @@ post '/api/tournaments' do
   players.each do |player|
 
     x = Player.where{ username =~ "#{player}" }.first
-    x ||= Player.create(username: player)
+
+    if x.nil?
+      halt 404
+    end
+    # x ||= Player.create(username: player)
 
     if count % 2 != 0
       # create new game
@@ -103,6 +109,8 @@ post '/api/tournaments' do
 
   @g.save
   t.save
+
+  return t.to_json
 end
 
 get '/api/tournaments/:id' do

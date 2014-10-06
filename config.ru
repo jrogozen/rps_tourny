@@ -3,6 +3,7 @@ require './app.rb'
 
 run Sinatra::Application
 
-configure :development do
+configure do
   set :port, 9494
+  enable :sessions
 end

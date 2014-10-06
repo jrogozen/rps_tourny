@@ -1,6 +1,19 @@
-<div class="form-group">
-  <input class="form-control" type="text" ng-model="player.username" placeholder="enter username" />
+<div class="form-group" ng-class="{ 'has-error' : playerForm.username.$invalid && !playerForm.name.$pristine }">
+  <label>Username</label>
+  <input name="username" class="form-control" type="text" ng-model="player.username" placeholder="enter username" required ng-minlength="3" ng-maxlength="8"/>
+    <p ng-show="playerForm.username.$error.minlength" class="help-block">Username is too short.</p>
+    <p ng-show="playerForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+</div>
+<div class="form-group" ng-class="{ 'has-error' : playerForm.email.$invalid && !playerForm.email.$pristine }">
+  <label>Email</label>
+  <input class="form-control" type="email" ng-model="player.email" placeholder="enter e-mail" name="email" />
+   <p ng-show="playerForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
 </div>
 <div class="form-group">
-  <input class="form-control" type="text" ng-model="player.email" placeholder="enter e-mail" />
+  <label>Password</label>
+  <input class="form-control" type="password" ng-model="player.password" placeholder="enter password" required/>
+</div>
+<div class="form-group">
+  <label>Password Confirmation</label>
+  <input class="form-control" type="password" ng-model="player.password_confirmation" placeholder="confirm password" required/>
 </div>
